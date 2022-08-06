@@ -1,0 +1,9 @@
+<mat-card  (click)="selectList()"  >
+    <div class="left" >    <mat-card-title>{{recipe.name}}</mat-card-title>
+        <mat-card-subtitle>{{recipe.description}}
+        </mat-card-subtitle></div>
+        <div class="right" >
+          <img mat-card-sm-image  src={{recipe.imagePath}} alt="">
+        </div>
+    
+    </mat-card>

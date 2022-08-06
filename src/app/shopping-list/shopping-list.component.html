@@ -1,0 +1,16 @@
+
+<mat-grid-list cols="" rowHeight="50vh" >
+    <mat-grid-tile class="shopping" >
+        <mat-divider  ></mat-divider>
+<app-shopping-edit> </app-shopping-edit>
+
+<mat-card *ngFor="let ingredient of ingredients">
+    <mat-card-subtitle>
+        {{ingredient.name}}
+    </mat-card-subtitle>
+    <mat-card-subtitle>
+        {{ingredient.amount}}
+    </mat-card-subtitle>
+</mat-card>
+</mat-grid-tile>
+</mat-grid-list>
