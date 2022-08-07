@@ -4,11 +4,16 @@
   <mat-card-title>{{recipe.name}}</mat-card-title>
   <button mat-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item color="primary" [style]="{backgroundColor:'green'}" >To Shopping List</button>
+  <button mat-menu-item color="primary" [style]="{backgroundColor:'green'}" (click)="toShopppingList(recipe.ingredients)" >To Shopping List</button>
   <button mat-menu-item color="accent" [style]="{backgroundColor:'blue'}" >Edit Recipe</button>
   <button mat-menu-item color="warn" [style]="{backgroundColor:'red'}" >Delete Recipe</button>
 
 </mat-menu>
 
-<mat-card-content>{{recipe.description}}</mat-card-content>
+<mat-card-subtitle>{{recipe.description}}</mat-card-subtitle>
+<mat-card-content>
+  <ul>
+    <li *ngFor="for let ingredient of recipe.ingredients" >{{ingredient.name}} {{ingredient.amount}}</li>
+  </ul>
+</mat-card-content>
 </mat-card>

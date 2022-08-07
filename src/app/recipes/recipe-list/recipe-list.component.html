@@ -1,3 +1,3 @@
 <button mat-raised-button color="primary" > add recipe </button>
 
-<app-recipe-item (viewRecipe)="selectedRecipe(recipe)"  *ngFor="let recipe of recipes" [recipe]="recipe"  ></app-recipe-item>
+<app-recipe-item   *ngFor="let recipe of recipes" [recipe]="recipe"  ></app-recipe-item>

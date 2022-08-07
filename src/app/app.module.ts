@@ -19,6 +19,17 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingService } from './shared/shopping.service';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+
+const appRoutes:Routes=[
+  {path:"",component:HomeComponent},
+  {path:"recipes",component:RecipesComponent},
+  {path:"shopping",component:ShoppingListComponent}
+]
+
 
 @NgModule({
   declarations: [
@@ -30,6 +41,7 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
     ShoppingListComponent,
     ShoppingEditComponent,
     RecipeItemComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -39,12 +51,12 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
     MatIconModule,
     MatToolbarModule,
     MatDividerModule,
- MatGridListModule,
+    MatGridListModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,9 @@
-<button mat-raised-button [style]="{backgroundColor:'green'}" >Add</button>
-<button mat-raised-button color="warn">Delete</button>
-<button mat-raised-button color="primary" >Clear</button>
+<div class="inputFields" >
+    <input type="text" placeholder="Name"   #nameInput  >
+    <input type="text" placehodler="Amount" #amountInput>
+</div>
+<div>
+    <button mat-raised-button [style]="{backgroundColor:'green'}" (click)="addItem()" >Add</button>
+    <button mat-raised-button color="warn">Delete</button>
+    <button mat-raised-button color="primary" >Clear</button>   
+</div>

@@ -1,9 +1,6 @@
-<app-header (toPath)="navigateTo($event)" ></app-header>
-
-<app-recipes *ngIf="path=='recipe'"  ></app-recipes>
+<app-header  ></app-header>
 
 
- 
-
-
-<app-shopping-list  *ngIf="path!=='recipe'" ></app-shopping-list>
+<router-outlet>
+    
+</router-outlet>

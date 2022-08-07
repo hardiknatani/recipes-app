@@ -1,27 +1,24 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import { Recipe } from './recipe.model';
+import { Recipe } from '../shared/recipe.model';
+import { RecipeService } from '../shared/recipe.service';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css']
+  styleUrls: ['./recipes.component.css'],
+  providers:[RecipeService]
 })
 export class RecipesComponent implements OnInit {
 
 
   recipeDetails!:Recipe
 
-  // setRecipe(recipeDetails:Recipe){
-  //   console.log(recipeDetails)
-  //   console.log(this.recipeDetails)
-  //   this.recipeDetails=recipeDetails
 
-  // }
 
-  constructor() { }
+  constructor( private recipeService:RecipeService) { }
 
   ngOnInit(){
-    console.log("hey",this.recipeDetails)
+  this.recipeService.recipeWasSelected.subscribe((recipe:Recipe)=>{this.recipeDetails=recipe})
   }
 
 

@@ -7,11 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  path="recipe"
+
   title = 'recepie-app';
 
-  navigateTo(path:string){
-    this.path=path
-   
-  }
+
 }

@@ -9,12 +9,7 @@ import { Component, EventEmitter, Output } from "@angular/core";
 
 export class HeaderComponent{
 
-    @Output() toPath = new EventEmitter<string>();
 
-    onNavigate(path:string){
-        
-        this.toPath.emit(path)
-    }
 
 
 

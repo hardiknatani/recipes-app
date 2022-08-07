@@ -1,26 +1,28 @@
 mat-card{
     display: flex;
-    flex-direction: column;
-    justify-content: left;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
 
 }
 
 mat-grid-tile{
-    background-color: grey;
-
+ background-color: lightblue;
 
 }
 
-mat-divider{
-    background-color: red;
-    color: black;
-}
 
-.shopping{
+app-shopping-edit{
     display: flex;
     flex-direction: column;
     gap:5vh;
 
+}
+
+
+.shopping{
+    display: flex;
+    flex-direction: column;
+    gap:2.5vh
 }
