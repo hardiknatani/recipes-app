@@ -1,4 +1,4 @@
-<mat-card  (click)="selectRecipe()"  >
+<mat-card [routerLink]="[index]" routerLinkActive="selected-card">
     <div class="left" >    <mat-card-title>{{recipe.name}}</mat-card-title>
         <mat-card-subtitle>{{recipe.description}}
         </mat-card-subtitle></div>

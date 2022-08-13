@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule}  from "@angular/material/menu"
 import {MatCardModule} from "@angular/material/card"
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -20,15 +21,13 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingService } from './shared/shopping.service';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-
-
-const appRoutes:Routes=[
-  {path:"",component:HomeComponent},
-  {path:"recipes",component:RecipesComponent},
-  {path:"shopping",component:ShoppingListComponent}
-]
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { AuthGaurdServiceService } from './auth-gaurd-service.service';
+import { AuthService } from './authService';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeService } from './shared/recipe.service';
 
 
 @NgModule({
@@ -42,6 +41,9 @@ const appRoutes:Routes=[
     ShoppingEditComponent,
     RecipeItemComponent,
     HomeComponent,
+    PageNotFoundComponentComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,
     
   ],
   imports: [
@@ -54,9 +56,11 @@ const appRoutes:Routes=[
     MatGridListModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,RouterModule.forRoot(appRoutes)
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ShoppingService],
+  providers: [ShoppingService,AuthGaurdServiceService,AuthService,RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

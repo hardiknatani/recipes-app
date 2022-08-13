@@ -1,9 +1,12 @@
-<div class="inputFields" >
-    <input type="text" placeholder="Name"   #nameInput  >
-    <input type="text" placehodler="Amount" #amountInput>
-</div>
-<div>
-    <button mat-raised-button [style]="{backgroundColor:'green'}" (click)="addItem()" >Add</button>
-    <button mat-raised-button color="warn">Delete</button>
-    <button mat-raised-button color="primary" >Clear</button>   
-</div>
+<form action="" #f="ngForm"  >
+
+    <div class="inputFields" >
+        <input required type="text" placeholder="Name" ngModel   name="name">
+        <input required type="number" placehodler="Amount" ngModel name="amount">
+    </div>
+    <div>
+        <button mat-raised-button [style]="{backgroundColor:'green'}" (click)="onSubmit(f)" [disabled]="!f.valid" >{{editMode?"Update":"Add"}}</button>
+        <button mat-raised-button color="warn" (click)="onDelete()" [disabled]="!editMode" >Delete</button>
+        <button mat-raised-button color="primary" (click)="onClear()" >Clear</button>   
+    </div>
+</form>

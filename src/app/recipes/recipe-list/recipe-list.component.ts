@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { RecipeService } from 'src/app/shared/recipe.service';
 
 import {Recipe} from "../../shared/recipe.model"
@@ -8,20 +9,28 @@ import {Recipe} from "../../shared/recipe.model"
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit,OnDestroy {
 
 
-  recipes:Recipe[]=[
-    
-]
-
+recipes:Recipe[]=[]
+index!:number;
+recipeChangedSub!:Subscription;
 
 
 
   constructor( private recipeService:RecipeService) { }
 
   ngOnInit() {
-    this.recipes=this.recipeService.recipeList
+ this.recipeChangedSub=   this.recipeService.recipesChanged.subscribe((recipes)=>{
+      this.recipes=recipes
+    });
+    this.recipes=this.recipeService.recipeList;
+
+
+  }
+
+  ngOnDestroy(): void {
+    this.recipeChangedSub.unsubscribe()
   }
 
 }

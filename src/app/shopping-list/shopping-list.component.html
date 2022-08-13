@@ -4,7 +4,7 @@
 <div class="shopping"  >
     <app-shopping-edit> </app-shopping-edit>
 
-    <mat-card *ngFor="let ingredient of ingredients">
+    <mat-card *ngFor="let ingredient of ingredients;let id =index" (click)="OnStartedEditing(id)" >
         <mat-card-subtitle>
             {{ingredient.name}}
         </mat-card-subtitle>

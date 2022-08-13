@@ -5,3 +5,8 @@
 mat-icon{
 background-color: grey;
 }
+
+.activeComponent{
+    background-color:cornflowerblue;
+    color:white;
+}

@@ -1,4 +1,4 @@
-.inputFields{
+form{
     display: flex;
-    flex-direction: row;
-    gap:2.5vw}
+    flex-direction: column;
+}
